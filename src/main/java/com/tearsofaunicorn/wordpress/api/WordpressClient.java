@@ -8,10 +8,6 @@ import java.util.Set;
 
 public class WordpressClient {
 
-    public boolean ping() {
-        return false;
-    }
-
     public Set<PostType> getPostTypes() {
         return null;
     }
