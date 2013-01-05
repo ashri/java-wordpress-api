@@ -5,6 +5,7 @@ import com.tearsofaunicorn.wordpress.api.WordpressClientConfig;
 import junit.framework.Assert;
 import org.apache.xmlrpc.XmlRpcException;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.net.MalformedURLException;
@@ -28,6 +29,7 @@ public class XmlRpcBridgeTest {
     }
 
     @Test
+    @Ignore
     public void testNewPost() throws XmlRpcException {
         Map<String, Object> post = new HashMap<String, Object>();
         post.put("post_type", "post");
