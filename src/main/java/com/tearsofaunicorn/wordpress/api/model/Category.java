@@ -1,6 +1,8 @@
 package com.tearsofaunicorn.wordpress.api.model;
 
-public class Category {
+import java.io.Serializable;
+
+public class Category implements Serializable, Comparable<Category> {
 
     private final String id;
     private final String name;
@@ -28,5 +30,10 @@ public class Category {
     @Override
     public String toString() {
         return this.name;
+    }
+
+    @Override
+    public int compareTo(Category o) {
+        return this.name.compareTo(o.getName());
     }
 }

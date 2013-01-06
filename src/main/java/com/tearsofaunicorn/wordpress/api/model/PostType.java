@@ -1,6 +1,8 @@
 package com.tearsofaunicorn.wordpress.api.model;
 
-public class PostType {
+import java.io.Serializable;
+
+public class PostType implements Serializable, Comparable<PostType> {
 
     private final String name;
     private final String label;
@@ -21,5 +23,10 @@ public class PostType {
     @Override
     public String toString() {
         return this.label;
+    }
+
+    @Override
+    public int compareTo(PostType p) {
+        return this.name.compareTo(p.getName());
     }
 }
