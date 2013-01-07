@@ -10,10 +10,23 @@ import com.tearsofaunicorn.wordpress.api.model.converter.PostTypesConverter;
 import com.tearsofaunicorn.wordpress.api.model.converter.TagsConverter;
 import com.tearsofaunicorn.wordpress.api.transport.XmlRpcBridge;
 import org.apache.xmlrpc.XmlRpcException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * A client for the Wordpress XML-RPC API.
+ * <p/>
+ * Can be constructed through provided the details or by using a set of system properties for configuration:
+ * -Dwordpress.username=<wordpress username>
+ * -Dwordpress.password=<wordpress password>
+ * -Dwordpress.url=<URL of Wordpress XML-RPC API endpoint, usually /xml-rpc.php>
+ */
 public class WordpressClient {
+
+    private static final String DEFAULT_POST_TYPE = "post";
+    private static final String DEFAULT_POST_STATUS = "publish";
 
     private final XmlRpcBridge bridge;
     private final String defaultNewPostType;
@@ -23,6 +36,22 @@ public class WordpressClient {
         this.bridge = bridge;
         this.defaultNewPostType = defaultNewPostType;
         this.defaultNewPostStatus = defaultNewPostStatus;
+    }
+
+    public WordpressClient() {
+        String userName = System.getProperty("wordpress.username");
+        String password = System.getProperty("wordpress.password");
+        String blogApiUrl = System.getProperty("wordpress.url");
+
+        WordpressClientConfig config = null;
+        try {
+            config = new WordpressClientConfig(userName, password, new URL(blogApiUrl));
+        } catch (MalformedURLException e) {
+            throw new WordpressClientException("Failed to build Wordpress XML-RPC URL using configured property", e);
+        }
+        this.bridge = new XmlRpcBridge(config);
+        this.defaultNewPostType = DEFAULT_POST_TYPE;
+        this.defaultNewPostStatus = DEFAULT_POST_STATUS;
     }
 
     public Set<PostType> getPostTypes() {
