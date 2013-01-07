@@ -2,7 +2,7 @@ java-wordpress-api
 ==================
 
 A Java library for creating posts and getting some basic information from a Wordpress installation using its
-XML-RPC API.
+[XML-RPC API][xmlrpc].
 
 The library currently supports the minimum information to allow a Jenkins plugin to post to a Wordpress installation.
 Therefore it supports creating a post, querying for available categories, tags and post types.
@@ -45,3 +45,4 @@ You can reference the library in your own Maven POM using the following:
 Copyright (c) 2013 Ashley Richardson. See [LICENSE][] for details.
 
 [license]: https://github.com/ashri/java-wordpress-api/blob/master/LICENSE.md
+[xmlrpc]: http://codex.wordpress.org/XML-RPC_WordPress_API
