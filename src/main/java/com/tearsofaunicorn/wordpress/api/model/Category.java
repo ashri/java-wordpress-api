@@ -15,6 +15,10 @@ public class Category implements Serializable, Comparable<Category> {
         this.description = description;
     }
 
+    public Category(String name) {
+        this(null, name, null);
+    }
+
     public String getId() {
         return id;
     }

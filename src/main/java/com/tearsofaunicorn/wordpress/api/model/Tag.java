@@ -15,6 +15,10 @@ public class Tag implements Serializable, Comparable<Tag> {
         this.description = description;
     }
 
+    public Tag(String name) {
+        this(null, name, null);
+    }
+
     public String getId() {
         return id;
     }

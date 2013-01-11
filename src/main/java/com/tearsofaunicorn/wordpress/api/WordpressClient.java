@@ -38,6 +38,10 @@ public class WordpressClient {
         this.defaultNewPostStatus = defaultNewPostStatus;
     }
 
+    public WordpressClient(XmlRpcBridge bridge) {
+        this(bridge, WordpressClient.DEFAULT_POST_TYPE, WordpressClient.DEFAULT_POST_STATUS);
+    }
+
     public WordpressClient() {
         String userName = System.getProperty("wordpress.username");
         String password = System.getProperty("wordpress.password");
