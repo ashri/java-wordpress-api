@@ -4,29 +4,30 @@ import java.io.Serializable;
 
 public class PostType implements Serializable, Comparable<PostType> {
 
-    private final String name;
-    private final String label;
+	private static final long serialVersionUID = -8075710571348060221L;
 
-    public PostType(String name, String label) {
-        this.name = name;
-        this.label = label;
-    }
+	private final String name;
+	private final String label;
 
-    public String getName() {
-        return this.name;
-    }
+	public PostType(String name, String label) {
+		this.name = name;
+		this.label = label;
+	}
 
-    public String getLabel() {
-        return this.label;
-    }
+	public String getName() {
+		return this.name;
+	}
 
-    @Override
-    public String toString() {
-        return this.label;
-    }
+	public String getLabel() {
+		return this.label;
+	}
 
-    @Override
-    public int compareTo(PostType p) {
-        return this.name.compareTo(p.getName());
-    }
+	@Override
+	public String toString() {
+		return this.label;
+	}
+
+	public int compareTo(PostType p) {
+		return this.name.compareTo(p.getName());
+	}
 }
