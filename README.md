@@ -28,7 +28,22 @@ To build and install the library:
 
 ## Using the library in your project
 
-You can reference the library in your own Maven POM using the following:
+The release versions of the library are deployed to Github which means you will need to add a repository to your Maven POM:
+
+```xml
+  <repositories>
+    <repository>
+      <id>opml-core-mvn-repo</id>
+      <url>https://raw.github.com/ashri/java-wordpress-api/mvn-repo/</url>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+    </repository>
+  </repositories>
+```
+
+You can then reference the library in your own Maven POM using the following:
 
 ```xml
   <dependencies>
