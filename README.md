@@ -33,7 +33,7 @@ The release versions of the library are deployed to Github which means you will 
 ```xml
   <repositories>
     <repository>
-      <id>opml-core-mvn-repo</id>
+      <id>java-wordpress-api-mvn-repo</id>
       <url>https://raw.github.com/ashri/java-wordpress-api/mvn-repo/</url>
       <snapshots>
         <enabled>true</enabled>
