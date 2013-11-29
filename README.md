@@ -50,7 +50,7 @@ You can then reference the library in your own Maven POM using the following:
     <dependency>
       <groupId>com.tearsofaunicorn.wordpress</groupId>
       <artifactId>wordpress-xmlrpc-client</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>1.0</version>
     </dependency>
   </dependencies>
 ```
